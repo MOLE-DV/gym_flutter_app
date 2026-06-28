@@ -1,0 +1,53 @@
+import 'package:hive/hive.dart';
+
+part 'exercise.g.dart';
+
+@HiveType(typeId: 1)
+class Exercise {
+  @HiveField(0)
+  final String name;
+
+  @HiveField(1)
+  final String force;
+
+  @HiveField(2)
+  final String level;
+
+  @HiveField(3)
+  final String mechanic;
+
+  @HiveField(4)
+  final String equipment;
+
+  @HiveField(5)
+  final List<String> primaryMuscles;
+
+  @HiveField(6)
+  final List<String> secondaryMuscles;
+
+  @HiveField(7)
+  final List<String> instructions;
+
+  @HiveField(8)
+  final String category;
+
+  @HiveField(9)
+  final List<String> images;
+
+  @HiveField(10)
+  final String id;
+
+  Exercise({
+    required this.name,
+    required this.force,
+    required this.level,
+    required this.mechanic,
+    required this.equipment,
+    required this.primaryMuscles,
+    required this.secondaryMuscles,
+    required this.instructions,
+    required this.category,
+    required this.images,
+    required this.id,
+  });
+}
