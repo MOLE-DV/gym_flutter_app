@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:gym_app/data/exercise.dart';
+import 'package:gym_app/hive/exercise.dart';
 
 class ExerciseRepository {
   final List<Exercise> exercises = [];

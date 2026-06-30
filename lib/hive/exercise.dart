@@ -50,4 +50,20 @@ class Exercise {
     required this.images,
     required this.id,
   });
+
+  factory Exercise.fromJson(Map<String, dynamic> json) {
+    return Exercise(
+      name: json['name'],
+      force: json['force'],
+      level: json["level"],
+      mechanic: json["mechanic"],
+      equipment: json["equipment"],
+      primaryMuscles: json["primaryMuscles"],
+      secondaryMuscles: json["secondaryMuscles"],
+      instructions: json["instructions"],
+      category: json["category"],
+      images: json["images"],
+      id: json["id"],
+    );
+  }
 }

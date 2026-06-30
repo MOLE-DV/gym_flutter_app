@@ -6,10 +6,10 @@ part 'plan.g.dart';
 @HiveType(typeId: 2)
 class Plan {
   @HiveField(0)
-  final String id;
+  final String name;
 
-  @HiveField(1)
-  final List<Exercise> exercise;
+  @HiveField(2)
+  final List<Exercise> exercises;
 
-  Plan({required this.id, required this.exercise});
+  Plan({required this.name, required this.exercises});
 }

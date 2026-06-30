@@ -17,8 +17,8 @@ class PlanAdapter extends TypeAdapter<Plan> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Plan(
-      id: fields[0] as String,
-      exercise: (fields[1] as List).cast<Exercise>(),
+      name: fields[0] as String,
+      exercises: (fields[2] as List).cast<Exercise>(),
     );
   }
 
@@ -27,9 +27,9 @@ class PlanAdapter extends TypeAdapter<Plan> {
     writer
       ..writeByte(2)
       ..writeByte(0)
-      ..write(obj.id)
-      ..writeByte(1)
-      ..write(obj.exercise);
+      ..write(obj.name)
+      ..writeByte(2)
+      ..write(obj.exercises);
   }
 
   @override

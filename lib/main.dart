@@ -14,11 +14,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
 
-  await Hive.openBox('data');
+  Hive.registerAdapter(DataModelAdapter());
   Hive.registerAdapter(ExerciseAdapter());
   Hive.registerAdapter(PlanAdapter());
   Hive.registerAdapter(WorkoutLogAdapter());
-  Hive.registerAdapter(DataModelAdapter());
+
+  await Hive.openBox<DataModel>('data');
 
   runApp(
     MultiProvider(
@@ -26,9 +27,7 @@ void main() async {
         ChangeNotifierProvider(
           create: (_) => SettingsProvider(language: Language.pl),
         ),
-        ChangeNotifierProvider(
-          create: (_) => DataProvider(plans: [], workoutLogs: []),
-        ),
+        ChangeNotifierProvider(create: (_) => DataProvider()),
       ],
       child: MainApp(),
     ),
@@ -37,7 +36,6 @@ void main() async {
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
